@@ -29,7 +29,8 @@ After successful connection, shows a menu list to user with the following:
   > 4: Back
   - If the user inputs 1, they can add a new part name that is asked from user input.
   - If the user inputs 2, they can add a new manufacturer name that is asked from user input.
-  - If the user inputs 3, they can remove an existing manufacturer by providing its name. Any part quantity (not already sold to the user's company) should also be removed.
+  - If the user inputs 3, they can remove an existing manufacturer by providing its name. Any part quantity (not already sold to the user's company)
+  should also be removed.
   - If the user inputs 4, the application should return to the previous menu.
 - If the user inputs 2, the following list should be displayed:
   > 1: Add quantity
@@ -54,8 +55,11 @@ After successful connection, shows a menu list to user with the following:
     > 3: List parts
     > 4: Back
     - If the user inputs 1, they can add money to the company's balance that is asked from user input. The application then should display the resulting balance.
-    - If the user inputs 2, they can buy available parts from manufacturers. The application should ask for part name, and quantity. The application should take the given quantity for the part that from the manufacturers that will cost the company the lowest possible amount. This amount should be then displayed.
-      - If there is not enough parts available to buy, or the company does not have enough money to buy them, nothing should happen but the user should be notified.
+    - If the user inputs 2, they can buy available parts from manufacturers. The application should ask for part name, and quantity.
+    The application should take the given quantity for the part that from the manufacturers that will cost the company the lowest possible amount.
+    This amount should be then displayed.
+      - If there is not enough parts available to buy, or the company does not have enough money to buy them,
+      nothing should happen but the user should be notified.
       - Example:
         - There is:
           - Part: PART-1, manufacturer: MANU-1, price: 10, quantity: 10
