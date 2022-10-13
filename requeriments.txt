@@ -1,0 +1,80 @@
+NokiaSupplyTask
+
+We have a database with details about our company, manufacturers, and available supplies of parts. We know the following:
+- How much money our company has
+- Name of parts
+- Name of manufacturers
+- Quantity of parts at a manufacturer
+- Price of parts at a manufacturer
+Name of the part, manufacturer should be unique.
+A part can be produced by more than one manufacturer. The price of a part can be different based on its manufacturer.
+Please use a database for the solution. Design your database structure carefully.
+Optionally you could use an in memory DB like H2, otherwise please either set up the DB via code or provide a detailed guide on how to prepare the DB for testing.
+
+Write a Java console application that meets the following requirements:
+
+On the startup tries to connect to the database and informs the user about its success. In case of failure, terminates the program.
+After successful connection, shows a menu list to user with the following:
+
+> 1: Data
+> 2: Manufacturers
+> 3: Company
+> 4: Exit
+
+- The user should input a number from 1 to 4.
+- If the user inputs 1, the following list should be displayed:
+  > 1: Add part
+  > 2: Add manufacturer
+  > 3: Remove manufacturer
+  > 4: Back
+  - If the user inputs 1, they can add a new part name that is asked from user input.
+  - If the user inputs 2, they can add a new manufacturer name that is asked from user input.
+  - If the user inputs 3, they can remove an existing manufacturer by providing its name. Any part quantity (not already sold to the user's company) should also be removed.
+  - If the user inputs 4, the application should return to the previous menu.
+- If the user inputs 2, the following list should be displayed:
+  > 1: Add quantity
+  > 2: List quantity
+    > 3: Back
+    - If the user inputs 1, they can add quantities of a part. The application should ask for the part name, manufacturer name, price, and quantity.
+    - If the user inputs 2, the application should ask for the part name, and manufacturer name.
+      - The application should list the price and quantity for the given part. If manufacturer name is not provided, it should instead list the price and quantity from each manufacturer of the part.
+      - Example:
+        > Part name: PART-1
+        > Manufacturer name: MANU-1
+        > Price: 10, quantity: 15
+      - Example:
+        > Part name: PART-1
+        > Manufacturer name:
+        > Manufacturer: MANU-1, price: 10, quantity: 15
+        > Manufacturer: MANU-2, price: 8, quantity: 1
+    - If the user inputs 3, the application should return to the previous menu.
+  - If the user inputs 3, the following list should be displayed:
+    > 1: Add money
+    > 2: Buy parts
+    > 3: List parts
+    > 4: Back
+    - If the user inputs 1, they can add money to the company's balance that is asked from user input. The application then should display the resulting balance.
+    - If the user inputs 2, they can buy available parts from manufacturers. The application should ask for part name, and quantity. The application should take the given quantity for the part that from the manufacturers that will cost the company the lowest possible amount. This amount should be then displayed.
+      - If there is not enough parts available to buy, or the company does not have enough money to buy them, nothing should happen but the user should be notified.
+      - Example:
+        - There is:
+          - Part: PART-1, manufacturer: MANU-1, price: 10, quantity: 10
+          - Part: PART-1, manufacturer: MANU-2, price: 5, quantity: 10
+        > Part name: PART-1
+        > Quantity: 10
+          - 5 quantity is taken from MANU-2 and added to the company.
+          - 5 quantity is taken from MANU-1 and added to the company.
+          - Spent: 75 should be displayed.
+    - If the user inputs 3, the application should list part name, quantity and manufacturer name for each part.
+      - Example:
+        > Part: PART-1, manufacturer: MANU-1, quantity: 5
+        > Part: PART-1, manufacturer: MANU-2, quantity: 5
+        > Part: PART-2, manufacturer: MANU-1, quantity: 1
+    - If the user inputs 4, the application should return to the previous menu.
+
+  If an input is invalid for any reason, the user should be notified and the application should ask for a new input.
+
+  - Please write unit tests for the code. Choose 2 from the more important classes and try to cover the use cases the best you can.
+  - Please try to write a self-documenting, well-organized code.
+  - Strive to make the application user friendly.
+  - If the build and run of your code, or database set-up is not trivial, please write a short documentation about it.
