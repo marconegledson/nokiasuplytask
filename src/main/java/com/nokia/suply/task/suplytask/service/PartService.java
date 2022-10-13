@@ -11,4 +11,7 @@ import org.springframework.stereotype.Service;
 public class PartService {
 
     private final PartRepository partRepository;
+
+    public void save(String name) {
+    }
 }
