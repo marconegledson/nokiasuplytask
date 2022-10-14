@@ -18,6 +18,10 @@ public class SecondaryMenuCommand  {
     private final PartService partService;
     private final ManufacturerService manufacturerService;
 
+    /**
+     * Exemplo de chamada no console:
+     * shell:> 1.2 ou 2.2 ou 3.2 ou 4.2
+     * */
     @ShellMethod(key = "1", value = "1")
     public static void menu() {
         log.info("1.2: Add part");
@@ -26,11 +30,19 @@ public class SecondaryMenuCommand  {
         log.info("4.2: Back");
     }
 
+    /**
+     * Exemplo de chamada no console:
+     * shell:> 1.3 --name part-1 ou simplesmente 1.3 part-1
+     * */
     @ShellMethod(key = "1.2", value = "1.2")
     public void addPart(String name) {
         partService.addPart(name);
     }
 
+    /**
+     * Exemplo de chamada no console:
+     * shell:> 2.2 --name manufaturer-1 ou simplesmente 2.2 manufaturer-1
+     * */
     @ShellMethod(key = "2.2", value = "2.2")
     public void addManuFacturer(String name) {
         manufacturerService.addManufacturer(name);

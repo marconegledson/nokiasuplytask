@@ -5,6 +5,7 @@ import com.nokia.suply.task.suplytask.model.repository.ManufacturerRepository;
 import com.nokia.suply.task.suplytask.model.repository.PriceRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,8 +24,16 @@ public class ManufacturerService {
 
     public void addManufacturer(String name) {
         try {
-            manufacturerRepository.save(Manufacturer.builder().name(name).build());
-            log.info("Manufacturer added successfully");
+
+            Manufacturer manufacturer = manufacturerRepository.findByName(name);
+
+            if(Objects.nonNull(manufacturer) && StringUtils.equals(name, manufacturer.getName())) {
+                log.info("This manufacturer already exists");
+            } else {
+                manufacturerRepository.save(Manufacturer.builder().name(name).build());
+                log.info("Manufacturer added successfully");
+            }
+
         } catch (Exception e) {
             log.info("There was a problem. Manufacturer not added");
         }
