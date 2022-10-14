@@ -78,7 +78,7 @@ public class PriceService {
                 priceRepository.save(price);
                 log.info("Data successfully updated");
             } else {
-                priceRepository.save(Price.builder().manufacturer(manufacturer)
+                Price priceSave = priceRepository.save(Price.builder().manufacturer(manufacturer)
                         .part(part)
                         .price(priceParam)
                         .quantity(quantity).build());

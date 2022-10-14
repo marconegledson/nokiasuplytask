@@ -17,7 +17,7 @@ import java.util.List;
 
 @Getter @Setter
 @Entity
-@Table(name = "tb_part")
+@Table(name = "dbteste.tb_part")
 @Builder
 @RequiredArgsConstructor
 @AllArgsConstructor
