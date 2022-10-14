@@ -1,6 +1,10 @@
 package com.nokia.suply.task.suplytask.model.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.domain.Persistable;
@@ -10,11 +14,13 @@ import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.util.List;
 
+
+@Getter @Setter
 @Entity
 @Table(name = "tb_part")
-@Getter
-@Setter
+@Builder
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class Part implements Persistable<Long> {
 
     @Id
@@ -26,9 +32,6 @@ public class Part implements Persistable<Long> {
     @NotBlank
     @Column(name = "name_part", unique = true)
     private String name;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "part")
-    private List<Manufacturer> manufacturers = List.of();
 
     @Override
     public boolean isNew() {

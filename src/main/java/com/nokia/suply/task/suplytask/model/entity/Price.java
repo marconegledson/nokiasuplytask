@@ -1,5 +1,8 @@
 package com.nokia.suply.task.suplytask.model.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -11,9 +14,10 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "tb_price")
-@Getter
-@Setter
+@Getter @Setter
+@Builder
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class Price implements Persistable<Long> {
 
     @Id
@@ -36,11 +40,6 @@ public class Price implements Persistable<Long> {
     @OneToOne
     @JoinColumn(name = "id_manufacturer", referencedColumnName = "id_manufacturer")
     private Manufacturer manufacturer;
-
-    @Override
-    public Long getId() {
-        return id;
-    }
 
     @Override
     public boolean isNew() {
