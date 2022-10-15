@@ -35,8 +35,8 @@ public class SecondaryMenuCommand  {
      * shell:> 1.3 --name part-1 ou simplesmente 1.3 part-1
      * */
     @ShellMethod(key = "1.2", value = "1.2")
-    public void addPart(String name) {
-        partService.addPart(name);
+    public void addPart(String partName) {
+        partService.addPart(partName);
     }
 
     /**
@@ -44,13 +44,13 @@ public class SecondaryMenuCommand  {
      * shell:> 2.2 --name manufaturer-1 ou simplesmente 2.2 manufaturer-1
      * */
     @ShellMethod(key = "2.2", value = "2.2")
-    public void addManuFacturer(String name) {
-        manufacturerService.addManufacturer(name);
+    public void addManuFacturer(String manufacturerName) {
+        manufacturerService.addManufacturer(manufacturerName);
     }
 
     @ShellMethod(key = "3.2", value = "3.2")
-    public void deleteManufacturer(String name) {
-        manufacturerService.deleteManufacturer(name);
+    public void deleteManufacturer(String manufacturerName) {
+        manufacturerService.deleteManufacturer(manufacturerName);
     }
 
     @ShellMethod(key = "4.2", value = "4.2")

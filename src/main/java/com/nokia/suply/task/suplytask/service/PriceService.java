@@ -28,6 +28,10 @@ public class PriceService {
     private final ManufacturerRepository manufacturerRepository;
     private final PartRepository partRepository;
 
+    public List<Price> findByPartName(String partName) {
+        return priceRepository.findByPartName(partName);
+    }
+
     public void listQuantity(String partName, String manufacturerName) {
         if(StringUtils.isBlank(partName)) {
             log.info("Enter the part name");
@@ -78,7 +82,7 @@ public class PriceService {
                 priceRepository.save(price);
                 log.info("Data successfully updated");
             } else {
-                Price priceSave = priceRepository.save(Price.builder().manufacturer(manufacturer)
+                priceRepository.save(Price.builder().manufacturer(manufacturer)
                         .part(part)
                         .price(priceParam)
                         .quantity(quantity).build());

@@ -13,6 +13,8 @@ public interface PriceRepository extends JpaRepository<Price, Long> {
 
     Price findByManufacturerNameAndPartName(String manufacturerName, String priceName);
 
+    List<Price> findByPartName(String partName);
+
     @Query("select pc from Price pc " +
             "inner join pc.part p " +
             "inner join pc.manufacturer m " +

@@ -48,7 +48,7 @@ public class ThirdMenuCommand {
 
     @ShellMethod(key = "3.3", value = "3.3")
     public void back() throws IOException {
-        SecondaryMenuCommand.menu();
+        PrimaryMenuCommand.menu();
     }
 
 }

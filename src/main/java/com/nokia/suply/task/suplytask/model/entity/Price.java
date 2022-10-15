@@ -26,20 +26,25 @@ public class Price implements Persistable<Long> {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_price")
     private Long id;
 
-    @NotBlank
     @Column(name = "quantity_price")
     private Integer quantity;
 
     @Column(name = "price_price")
     private BigDecimal price;
 
-    @OneToOne
-    @JoinColumn(name = "id_part", referencedColumnName = "id_part")
+    @ManyToOne
+    @JoinColumn(name = "id_part")
     private Part part;
 
-    @OneToOne
-    @JoinColumn(name = "id_manufacturer", referencedColumnName = "id_manufacturer")
+    @ManyToOne
+    @JoinColumn(name = "id_manufacturer")
     private Manufacturer manufacturer;
+
+    @Transient
+    private boolean pay;
+
+    @Transient
+    private Integer quantityPay;
 
     @Override
     public boolean isNew() {
